@@ -14,6 +14,7 @@
 
 package org.bonitasoft.migration
 
+import org.bonitasoft.engine.api.APIClient
 import org.bonitasoft.engine.test.junit.BonitaEngineRule
 import org.bonitasoft.migration.filler.FillerUtils
 import org.junit.Rule
@@ -32,4 +33,14 @@ class CheckMigratedToNEW_VERSION extends Specification {
         FillerUtils.initializeEngineSystemProperties()
     }
 
+	def "verify we can login on migrated platform"() {
+		given:
+		def client = new APIClient()
+
+		when:
+		client.login("install", "install")
+
+		then:
+		client.session != null
+	}
 }

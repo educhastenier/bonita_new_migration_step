@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Bonitasoft S.A.
+ * Copyright (C) 2017 Bonitasoft S.A.
  * Bonitasoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation
@@ -21,6 +21,9 @@ import spock.lang.Unroll
  */
 class MigrateToNEW_VERSIONTest extends Specification {
 
+    // uncomment example test below when adding new migrations steps
+
+
     // @Unroll
     // def "should migration to x.y.z include #stepName step"(def stepName) {
     //     given:
@@ -33,7 +36,7 @@ class MigrateToNEW_VERSIONTest extends Specification {
     //     }.contains(stepName) == true
 
     //     where:
-    //     stepName << ["IncreaseVersionField"]
+    //     stepName << ["YOUR_MIGRATION_STEP_NAME"]
 
     // }
 }

@@ -8,6 +8,7 @@
  **/
 package com.bonitasoft.migration
 
+import com.bonitasoft.engine.api.APIClient
 import com.bonitasoft.engine.test.junit.BonitaEngineSPRule
 import org.bonitasoft.migration.CheckMigratedToNEW_VERSION
 import org.bonitasoft.migration.filler.FillerUtils
@@ -17,7 +18,7 @@ import org.junit.Rule
 /**
  * @author Emmanuel Duchastenier
  */
-class MigrationSPNEW_VERSION extends CheckMigratedToNEW_VERSION {
+class CheckMigratedToSPNEW_VERSION extends CheckMigratedToNEW_VERSION {
 
     @Rule
     public BonitaEngineSPRule bonitaEngineRule = BonitaEngineSPRule.create().reuseExistingPlatform()
@@ -27,4 +28,14 @@ class MigrationSPNEW_VERSION extends CheckMigratedToNEW_VERSION {
         FillerUtils.initializeEngineSystemProperties()
     }
 
+    def "verify we can login on migrated SP platform"() {
+        given:
+        def client = new APIClient()
+ 
+        when:
+        client.login("install", "install")
+ 
+        then:
+        client.session != null
+    }
 }
